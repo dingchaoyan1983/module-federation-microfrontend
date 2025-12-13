@@ -1,0 +1,29 @@
+{
+  "name": "module-federation-monorepo",
+  "version": "1.0.0",
+  "description": "Module Federation Monorepo Project",
+  "private": true,
+  "scripts": {
+    "install:all": "pnpm install",
+    "start:host": "pnpm --filter @mf/host start",
+    "start:subapp1": "pnpm --filter @mf/subapp1 start",
+    "start:subapp2": "pnpm --filter @mf/subapp2 start",
+    "start:all": "concurrently \"pnpm start:host\" \"pnpm start:subapp1\" \"pnpm start:subapp2\"",
+    "build:host": "pnpm --filter @mf/host build",
+    "build:subapp1": "pnpm --filter @mf/subapp1 build",
+    "build:subapp2": "pnpm --filter @mf/subapp2 build",
+    "build:all": "pnpm run build:host && pnpm run build:subapp1 && pnpm run build:subapp2"
+  },
+  "keywords": [
+    "module-federation",
+    "micro-frontend",
+    "react",
+    "monorepo",
+    "pnpm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
