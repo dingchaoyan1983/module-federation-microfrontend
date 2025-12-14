@@ -15,14 +15,12 @@ export const fetchAppConfig = async (): Promise<AppConfig[]> => {
       remoteUrl: 'http://localhost:3001/subapp1-manifest.json',
       modulePath: 'App',
       routePrefix: '/subapp1',
-      displayName: '子应用1',
     },
     {
       name: 'subapp2',
       remoteUrl: 'http://localhost:3002/subapp2-manifest.json',
       modulePath: 'App',
       routePrefix: '/subapp2',
-      displayName: '子应用2',
     },
   ];
 };

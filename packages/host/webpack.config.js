@@ -36,15 +36,14 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
-          eager: true,
-          requiredVersion: '^18.2.0',
+          requiredVersion: '^18.0.0',
         },
         'react-dom': {
           singleton: true,
-          eager: true,
-          requiredVersion: '^18.2.0',
+          requiredVersion: '^18.0.0',
         }
       },
+      shareStrategy: "loaded-first",
       manifest: true,
     }),
   ],

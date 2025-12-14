@@ -40,7 +40,7 @@ const App: React.FC = () => {
           {/* 动态生成子应用导航 */}
           {appList.map(app => (
             <NavLink key={app.name} to={app.routePrefix}>
-              {app.displayName}
+              {app.name}
             </NavLink>
           ))}
         </nav>

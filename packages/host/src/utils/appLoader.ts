@@ -8,10 +8,9 @@ import { AppConfig } from '../types';
  * @param {AppConfig} appConfig - 子应用配置
  * @returns {Promise<MicroAppModule>} 子应用模块
  */
-export const loadMicroApp = async (appConfig: AppConfig) => {
+export const loadMicroApp = (appConfig: AppConfig) => {
   const {
     name,
-    remoteUrl,
     modulePath,
   } = appConfig;
 

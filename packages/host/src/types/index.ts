@@ -4,7 +4,6 @@ export interface AppConfig {
   remoteUrl: string;
   modulePath: string;
   routePrefix: string;
-  displayName: string;
 }
 
 // 子应用组件属性类型

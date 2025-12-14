@@ -47,16 +47,15 @@ module.exports = {
       manifest: {
         fileName: 'subapp2-manifest.json',
       },
+      shareStrategy: "loaded-first",
       shared: {
         react: {
           singleton: true,
-          eager: true,
-          requiredVersion: '^18.2.0',
+          requiredVersion: '^18.0.0',
         },
         'react-dom': {
           singleton: true,
-          eager: true,
-          requiredVersion: '^18.2.0',
+          requiredVersion: '^18.0.0',
         }
       },
       dts: {
