@@ -38,9 +38,11 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'subapp1',
-      filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App', // 暴露整个应用
+      },
+      manifest: {
+        fileName: 'subapp1-manifest.json',
       },
       shared: {
         react: {

@@ -1,9 +1,4 @@
 import React from 'react';
-declare global {
-    interface Window {
-        __POWERED_BY_QIANKUN__?: boolean;
-    }
-}
 interface AppProps {
     basename?: string;
     location?: any;

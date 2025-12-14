@@ -32,7 +32,6 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'hostApp',
-      filename: 'remoteEntry.js',
       remotes: {}, // 留空，运行时动态配置
       shared: {
         react: {
@@ -46,6 +45,7 @@ module.exports = {
           requiredVersion: '^18.2.0',
         }
       },
+      manifest: true,
     }),
   ],
   devServer: {

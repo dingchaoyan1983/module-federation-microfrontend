@@ -2,14 +2,10 @@ import React from 'react';
 import {
   createBridgeComponent
 } from "@module-federation/bridge-react"
-import { BrowserRouter, Routes, Route, NavLink, useRoutes, RouteObject } from 'react-router-dom';
-
-// 扩展Window类型
-declare global {
-  interface Window {
-    __POWERED_BY_QIANKUN__?: boolean;
-  }
-}
+import {
+  BrowserRouter,
+  Routes, Route, NavLink, useRoutes, RouteObject
+} from 'react-router-dom';
 
 // 应用属性接口
 interface AppProps {
@@ -21,7 +17,7 @@ interface AppProps {
 /**
  * 子应用1的路由组件
  */
-const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
+const AppRoutes: React.FC<AppProps> = () => {
   // 定义子应用内部路由
   const routes: RouteObject[] = [
     { path: '/', element: <HomePage /> },
@@ -51,37 +47,23 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
  * 支持独立运行和嵌入宿主两种模式
  */
 export const App: React.FC<AppProps> = (props = {}) => {
-  const { basename = '/' } = props;
 
-  // 检查是否在宿主应用中运行
-  const isInHost = window.__POWERED_BY_QIANKUN__ || basename !== '/';
 
-  if (isInHost) {
-
-    // 在宿主应用中运行，直接使用路由组件
-    return (
-      <BrowserRouter>
-        <AppRoutes basename={basename} {...props} />
-      </BrowserRouter>
-    );
-  } else {
-    // 独立运行，使用完整的 BrowserRouter
-    return (
-      <BrowserRouter>
-        <div className="subapp-standalone">
-          <h1>子应用1（独立运行模式）</h1>
-          <AppRoutes {...props} />
-        </div>
-      </BrowserRouter>
-    );
-  }
+  // 独立运行，使用完整的 BrowserRouter
+  return (
+    <BrowserRouter>
+      <div className="subapp-standalone">
+        <h1>子应用1（独立运行模式）</h1>
+        <AppRoutes />
+      </div>
+    </BrowserRouter>
+  );
 };
 
 // 子应用页面组件
 const HomePage: React.FC = () => <div>
   <h2>子应用1首页</h2>
   <p>这是子应用1的首页内容</p>
-  <p>当前模式：{window.__POWERED_BY_QIANKUN__ ? '嵌入宿主' : '独立运行'}</p>
 </div>;
 
 const Page1: React.FC = () => <div>
