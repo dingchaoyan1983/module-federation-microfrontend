@@ -1,7 +1,7 @@
 
-import React from 'react';
+import { createRemoteComponent } from "@module-federation/bridge-react"
 import { loadRemote, registerRemotes } from '@module-federation/enhanced/runtime';
-import { AppConfig, MicroAppModule } from '../types';
+import { AppConfig } from '../types';
 
 
 registerRemotes([{
@@ -25,14 +25,11 @@ export const loadMicroApp = async (appConfig: AppConfig) => {
     modulePath,
   } = appConfig;
 
-
-  // @ts-ignore ignore
-  const Comp = React.lazy(async () => {
-    //@ts-ignore
-    const remoteModule = await loadRemote(`${name}/${modulePath}`);
-    console.log(remoteModule);
-    return remoteModule;
-  });
-
-  return Comp
+  const RemoteComponent = createRemoteComponent({
+    loader: () => loadRemote<any>(`${name}/${modulePath}`),
+    loading: "loading",
+    fallback: () => null,
+  })
+  
+  return RemoteComponent;
 };

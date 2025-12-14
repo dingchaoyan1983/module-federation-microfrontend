@@ -14,6 +14,9 @@ importers:
 
   packages/host:
     dependencies:
+      '@module-federation/bridge-react':
+        specifier: ^0.8.0
+        version: 0.8.12(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@module-federation/enhanced':
         specifier: ^0.9.0
         version: 0.9.1(@rspack/core@1.6.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(webpack@5.103.0)
@@ -69,6 +72,9 @@ importers:
 
   packages/subapp1:
     dependencies:
+      '@module-federation/bridge-react':
+        specifier: ^0.8.0
+        version: 0.8.12(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -124,6 +130,9 @@ importers:
 
   packages/subapp2:
     dependencies:
+      '@module-federation/bridge-react':
+        specifier: ^0.8.0
+        version: 0.8.12(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -763,8 +772,24 @@ packages:
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
+  '@loadable/component@5.16.7':
+    resolution: {integrity: sha512-XvkFixLUOTEaj8lI7uwc4nf8Wmq3IulYG7SZHCWcPm/Li5gjJDFfIkgWOLPnD7jqPJVtAG9bEz4SCek+SpHYYg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   '@module-federation/bridge-react-webpack-plugin@0.9.1':
     resolution: {integrity: sha512-znN/Qm6M0U1t3iF10gu1hSxDkk18yz78yvk+AMB34UDzpXHiC1zbpIeV2CQNV5GCeafmCICmcn9y1qh7F54KTg==}
+
+  '@module-federation/bridge-react@0.8.12':
+    resolution: {integrity: sha512-eQvgUttIQdHPz+k3CvNtGIdXBTbiqD1jERQpOhYqYvXYtmI3bT1u+DbZOR1+OZtNliddpZXm2Q5ebrM8jrd9tQ==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+      react-router-dom: ^4 || ^5 || ^6
+
+  '@module-federation/bridge-shared@0.8.12':
+    resolution: {integrity: sha512-IPNC5F14VxTcrJ5lQz+SpL9FdHZz3UDiKtwVU+DuqesM0wJDYjCf1kkR9v03MLW47gyZTWBp9ePatRd+GcE5dw==}
 
   '@module-federation/data-prefetch@0.9.1':
     resolution: {integrity: sha512-rS1AsgRvIMAWK8oMprEBF0YQ3WvsqnumjinvAZU1Dqut5DICmpQMTPEO1OrAKyjO+PQgEhmq13HggzN6ebGLrQ==}
@@ -844,6 +869,9 @@ packages:
 
   '@module-federation/sdk@0.21.6':
     resolution: {integrity: sha512-x6hARETb8iqHVhEsQBysuWpznNZViUh84qV2yE7AD+g7uIzHKiYdoWqj10posbo5XKf/147qgWDzKZoKoEP2dw==}
+
+  '@module-federation/sdk@0.8.12':
+    resolution: {integrity: sha512-zFgXYBHbzwIqlrLfn6ewIRXDZCctDDQT2nFhbsZr29yWQgpmW1fm2kJCxQsG0DENGGN1KpzfDoxjjvSKJS/ZHA==}
 
   '@module-federation/sdk@0.9.1':
     resolution: {integrity: sha512-YQonPTImgnCqZjE/A+3N2g3J5ypR6kx1tbBzc9toUANKr/dw/S63qlh/zHKzWQzxjjNNVMdXRtTMp07g3kgEWg==}
@@ -1743,6 +1771,9 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
 
+  hoist-non-react-statics@3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+
   homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -1916,6 +1947,10 @@ packages:
   isobject@3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
+
+  isomorphic-rslog@0.0.7:
+    resolution: {integrity: sha512-n6/XnKnZ5eLEj6VllG4XmamXG7/F69nls8dcynHyhcTpsPUYgcgx4ifEaCo4lQJ2uzwfmIT+F0KBGwBcMKmt5g==}
+    engines: {node: '>=14.17.6'}
 
   isomorphic-ws@5.0.0:
     resolution: {integrity: sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==}
@@ -2254,6 +2289,14 @@ packages:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
       react: ^18.3.1
+
+  react-error-boundary@4.1.2:
+    resolution: {integrity: sha512-GQDxZ5Jd+Aq/qUxbCm1UtzmL/s++V7zKgE8yMktJiCQXCCFZnMZh9ng+6/Ne6PjNSXH0L9CjeOEREfRnq6Duag==}
+    peerDependencies:
+      react: '>=16.13.1'
+
+  react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   react-router-dom@6.30.2:
     resolution: {integrity: sha512-l2OwHn3UUnEVUqc6/1VMmR1cvZryZ3j3NzapC2eUXO1dB0sYp5mvwdjiXhpUbRb21eFow3qSxpP8Yv6oAU824Q==}
@@ -3547,11 +3590,30 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
+  '@loadable/component@5.16.7(react@18.3.1)':
+    dependencies:
+      '@babel/runtime': 7.28.4
+      hoist-non-react-statics: 3.3.2
+      react: 18.3.1
+      react-is: 16.13.1
+
   '@module-federation/bridge-react-webpack-plugin@0.9.1':
     dependencies:
       '@module-federation/sdk': 0.9.1
       '@types/semver': 7.5.8
       semver: 7.6.3
+
+  '@module-federation/bridge-react@0.8.12(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@loadable/component': 5.16.7(react@18.3.1)
+      '@module-federation/bridge-shared': 0.8.12
+      '@module-federation/sdk': 0.8.12
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-error-boundary: 4.1.2(react@18.3.1)
+      react-router-dom: 6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  '@module-federation/bridge-shared@0.8.12': {}
 
   '@module-federation/data-prefetch@0.9.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -3692,6 +3754,10 @@ snapshots:
       '@module-federation/sdk': 0.9.1
 
   '@module-federation/sdk@0.21.6': {}
+
+  '@module-federation/sdk@0.8.12':
+    dependencies:
+      isomorphic-rslog: 0.0.7
 
   '@module-federation/sdk@0.9.1': {}
 
@@ -4658,6 +4724,10 @@ snapshots:
 
   he@1.2.0: {}
 
+  hoist-non-react-statics@3.3.2:
+    dependencies:
+      react-is: 16.13.1
+
   homedir-polyfill@1.0.3:
     dependencies:
       parse-passwd: 1.0.0
@@ -4841,6 +4911,8 @@ snapshots:
   isexe@2.0.0: {}
 
   isobject@3.0.1: {}
+
+  isomorphic-rslog@0.0.7: {}
 
   isomorphic-ws@5.0.0(ws@8.18.0):
     dependencies:
@@ -5162,6 +5234,13 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-error-boundary@4.1.2(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.28.4
+      react: 18.3.1
+
+  react-is@16.13.1: {}
 
   react-router-dom@6.30.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

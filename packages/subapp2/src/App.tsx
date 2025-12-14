@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink, useRoutes, RouteObject } from 'react-router-dom';
-
+import {
+  createBridgeComponent
+} from "@module-federation/bridge-react"
 // 扩展Window类型
 declare global {
   interface Window {
@@ -34,7 +36,7 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
         <NavLink to="/dashboard">仪表盘</NavLink>
         <NavLink to="/settings">设置</NavLink>
       </nav>
-      
+
       {/* 子应用内容 */}
       <div className="subapp-content">
         {useRoutes(routes)}
@@ -47,15 +49,20 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
  * 子应用2主组件
  * 支持独立运行和嵌入宿主两种模式
  */
-const App: React.FC<AppProps> = (props = {}) => {
+export const App: React.FC<AppProps> = (props = {}) => {
   const { basename = '/' } = props;
-  
+
   // 检查是否在宿主应用中运行
   const isInHost = window.__POWERED_BY_QIANKUN__ || basename !== '/';
 
   if (isInHost) {
     // 在宿主应用中运行，直接使用路由组件
-    return <AppRoutes basename={basename} {...props} />;
+
+    return (
+      <BrowserRouter>
+        <AppRoutes basename={basename} {...props} />
+      </BrowserRouter>
+    );
   } else {
     // 独立运行，使用完整的 BrowserRouter
     return (
@@ -107,4 +114,4 @@ const Settings: React.FC = () => <div>
   </div>
 </div>;
 
-export default App;
+export default createBridgeComponent({ rootComponent: App });

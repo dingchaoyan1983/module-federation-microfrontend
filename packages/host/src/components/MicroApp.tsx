@@ -7,7 +7,7 @@ import { AppConfig } from '../types';
  * 子应用渲染组件
  */
 const MicroApp: React.FC<{ appConfig: AppConfig }> = ({ appConfig }) => {
-  const [AppComponent, setAppComponent] = useState<React.LazyExoticComponent<React.ComponentType<any>>>(React.lazy(() => Promise.resolve({ default: () => null })));
+  const [AppComponent, setAppComponent] = useState<React.ForwardRefExoticComponent<React.PropsWithoutRef<any>>>(React.lazy(() => Promise.resolve({ default: () => null })));
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   

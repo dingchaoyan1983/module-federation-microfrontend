@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  createBridgeComponent
+} from "@module-federation/bridge-react"
 import { BrowserRouter, Routes, Route, NavLink, useRoutes, RouteObject } from 'react-router-dom';
 
 // 扩展Window类型
@@ -30,11 +33,11 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
     <>
       {/* 子应用导航 */}
       <nav className="subapp-nav">
-        <NavLink to=".">子应用1首页</NavLink>
-        <NavLink to="./page1">页面1</NavLink>
-        <NavLink to="./page2">页面2</NavLink>
+        <NavLink to="/">子应用1首页</NavLink>
+        <NavLink to="/page1">页面1</NavLink>
+        <NavLink to="/page2">页面2</NavLink>
       </nav>
-      
+
       {/* 子应用内容 */}
       <div className="subapp-content">
         {useRoutes(routes)}
@@ -47,15 +50,20 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
  * 子应用1主组件
  * 支持独立运行和嵌入宿主两种模式
  */
-const App: React.FC<AppProps> = (props = {}) => {
+export const App: React.FC<AppProps> = (props = {}) => {
   const { basename = '/' } = props;
-  
+
   // 检查是否在宿主应用中运行
   const isInHost = window.__POWERED_BY_QIANKUN__ || basename !== '/';
 
   if (isInHost) {
+
     // 在宿主应用中运行，直接使用路由组件
-    return <AppRoutes basename={basename} {...props} />;
+    return (
+      <BrowserRouter>
+        <AppRoutes basename={basename} {...props} />
+      </BrowserRouter>
+    );
   } else {
     // 独立运行，使用完整的 BrowserRouter
     return (
@@ -88,4 +96,6 @@ const Page2: React.FC = () => <div>
   <p>子应用内部支持完整的路由系统</p>
 </div>;
 
-export default App;
+export default createBridgeComponent({
+  rootComponent: App
+});

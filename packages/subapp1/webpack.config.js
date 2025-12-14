@@ -11,6 +11,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      'react-router-dom$': path.resolve(
+        __dirname,
+        'node_modules/@module-federation/bridge-react/dist/router-v6.es.js',
+      ),
+    }
   },
   module: {
     rules: [
@@ -46,12 +52,7 @@ module.exports = {
           singleton: true,
           eager: true,
           requiredVersion: '^18.2.0',
-        },
-        'react-router-dom': {
-          singleton: true,
-          eager: true,
-          requiredVersion: '^6.22.0',
-        },
+        }
       },
     }),
   ],
