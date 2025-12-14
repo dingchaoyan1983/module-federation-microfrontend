@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { fetchAppConfig } from './config/appConfig';
 import MicroApp from './components/MicroApp';
 import { AppConfig } from './types';
+import { registerRemotes } from '@module-federation/enhanced/runtime';
 
 const App: React.FC = () => {
   const [appList, setAppList] = useState<AppConfig[]>([]);
@@ -13,9 +14,14 @@ const App: React.FC = () => {
     const loadAppConfig = async () => {
       const config = await fetchAppConfig();
       setAppList(config);
+      registerRemotes(config.map((conf) => ({
+        name: conf.name,
+        alias: conf.name,
+        entry: conf.remoteUrl,
+      })));
       setLoading(false);
     };
-    
+
     loadAppConfig();
   }, []);
 
@@ -30,7 +36,7 @@ const App: React.FC = () => {
         <nav className="host-nav">
           <NavLink to="/">首页</NavLink>
           <NavLink to="/about">关于</NavLink>
-          
+
           {/* 动态生成子应用导航 */}
           {appList.map(app => (
             <NavLink key={app.name} to={app.routePrefix}>
@@ -44,7 +50,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            
+
             {/* 动态生成子应用路由 */}
             {appList.map(app => (
               <Route
