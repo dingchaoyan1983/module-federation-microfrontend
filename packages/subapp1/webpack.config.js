@@ -49,6 +49,7 @@ module.exports = {
         },
         'react-router-dom': {
           singleton: true,
+          eager: true,
           requiredVersion: '^6.22.0',
         },
       },
