@@ -4,6 +4,9 @@ import {
   createBridgeComponent
 } from "@module-federation/bridge-react"
 
+const Subapp1Component = React.lazy(() => import('subapp1/Subapp1Component'));
+
+
 // 应用属性接口
 interface AppProps {
   basename?: string;
@@ -64,6 +67,9 @@ const HomePage: React.FC = () => <div>
   <h2>子应用2首页</h2>
   <p>这是子应用2的首页内容</p>
   <p>子应用2提供了仪表盘和设置功能</p>
+  <React.Suspense>
+    <Subapp1Component />
+  </React.Suspense>
 </div>;
 
 const Dashboard: React.FC = () => <div>

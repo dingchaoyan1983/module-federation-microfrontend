@@ -6,6 +6,7 @@ import {
   BrowserRouter,
   Routes, Route, NavLink, useRoutes, RouteObject
 } from 'react-router-dom';
+import Subapp1Component from './Subapp1Component';
 
 // 应用属性接口
 interface AppProps {
@@ -64,6 +65,7 @@ export const App: React.FC<AppProps> = (props = {}) => {
 const HomePage: React.FC = () => <div>
   <h2>子应用1首页</h2>
   <p>这是子应用1的首页内容</p>
+  <Subapp1Component />
 </div>;
 
 const Page1: React.FC = () => <div>

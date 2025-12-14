@@ -40,6 +40,7 @@ module.exports = {
       name: 'subapp1',
       exposes: {
         './App': './src/App', // 暴露整个应用
+        './Subapp1Component': './src/Subapp1Component', // 暴露组件
       },
       manifest: {
         fileName: 'subapp1-manifest.json',

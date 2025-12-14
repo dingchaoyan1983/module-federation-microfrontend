@@ -41,6 +41,9 @@ module.exports = {
       exposes: {
         './App': './src/App', // 暴露整个应用
       },
+      remotes: {
+        subapp1: 'subapp1@http://localhost:3001/subapp1-manifest.json',
+      },
       manifest: {
         fileName: 'subapp2-manifest.json',
       },
