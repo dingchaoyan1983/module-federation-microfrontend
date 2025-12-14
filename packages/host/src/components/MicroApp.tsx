@@ -7,7 +7,7 @@ import { AppConfig } from '../types';
  * 子应用渲染组件
  */
 const MicroApp: React.FC<{ appConfig: AppConfig }> = ({ appConfig }) => {
-  const [AppComponent, setAppComponent] = useState<React.ForwardRefExoticComponent<any> | null>(null);
+  const [AppComponent, setAppComponent] = useState<React.LazyExoticComponent<React.ComponentType<any>>>(React.lazy(() => Promise.resolve({ default: () => null })));
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   
@@ -20,7 +20,7 @@ const MicroApp: React.FC<{ appConfig: AppConfig }> = ({ appConfig }) => {
       setError(null);
       
       try {
-        const appModule  = loadMicroApp(appConfig);
+        const appModule  = await loadMicroApp(appConfig);
         setAppComponent(appModule);
       } catch (err) {
         setError(err instanceof Error ? err : new Error(String(err)));
@@ -60,7 +60,9 @@ const MicroApp: React.FC<{ appConfig: AppConfig }> = ({ appConfig }) => {
   };
 
   return <div className="micro-app-container">
-    <AppComponent {...appProps} />
+    <React.Suspense fallback={<div>加载中...</div>}>
+      <AppComponent {...appProps} />
+    </React.Suspense>
   </div>;
 };
 

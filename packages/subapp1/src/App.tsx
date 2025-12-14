@@ -30,9 +30,9 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
     <>
       {/* 子应用导航 */}
       <nav className="subapp-nav">
-        <NavLink to="/">子应用1首页</NavLink>
-        <NavLink to="/page1">页面1</NavLink>
-        <NavLink to="/page2">页面2</NavLink>
+        <NavLink to=".">子应用1首页</NavLink>
+        <NavLink to="./page1">页面1</NavLink>
+        <NavLink to="./page2">页面2</NavLink>
       </nav>
       
       {/* 子应用内容 */}
@@ -48,7 +48,7 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
  * 支持独立运行和嵌入宿主两种模式
  */
 const App: React.FC<AppProps> = (props = {}) => {
-  const { basename = '/subapp1' } = props;
+  const { basename = '/' } = props;
   
   // 检查是否在宿主应用中运行
   const isInHost = window.__POWERED_BY_QIANKUN__ || basename !== '/';

@@ -1,4 +1,5 @@
-import { createRemoteComponent } from '@module-federation/bridge-react';
+
+import React from 'react';
 import { loadRemote, registerRemotes } from '@module-federation/enhanced/runtime';
 import { AppConfig, MicroAppModule } from '../types';
 
@@ -17,18 +18,21 @@ entry: 'http://localhost:3002/remoteEntry.js',
  * @param {AppConfig} appConfig - 子应用配置
  * @returns {Promise<MicroAppModule>} 子应用模块
  */
-export const loadMicroApp = (appConfig: AppConfig) => {
+export const loadMicroApp = async (appConfig: AppConfig) => {
   const {
     name,
     remoteUrl,
     modulePath,
   } = appConfig;
 
-  // 创建动态 Remote 配置
-  return createRemoteComponent({
-    loader: () => loadRemote<any>(`${name}/${modulePath}`),
-    loading: "loading...",
-    fallback: () => "fallback...",
+
+  // @ts-ignore ignore
+  const Comp = React.lazy(async () => {
+    //@ts-ignore
+    const remoteModule = await loadRemote(`${name}/${modulePath}`);
+    console.log(remoteModule);
+    return remoteModule;
   });
 
+  return Comp
 };
