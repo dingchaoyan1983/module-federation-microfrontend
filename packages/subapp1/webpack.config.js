@@ -39,8 +39,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'subapp1',
       exposes: {
-        './App': './src/App', // 暴露整个应用
-        './Subapp1Component': './src/Subapp1Component', // 暴露组件
+        './App': './src/App.tsx', // 暴露整个应用
+        './Subapp1Component': './src/Subapp1Component.tsx', // 暴露组件
       },
       manifest: {
         fileName: 'subapp1-manifest.json',
@@ -57,6 +57,10 @@ module.exports = {
           requiredVersion: '^18.2.0',
         }
       },
+      dts: {
+        generateTypes: true,
+        displayErrorInTerminal: true,
+      }
     }),
   ],
   devServer: {

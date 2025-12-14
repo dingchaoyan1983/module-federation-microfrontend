@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink, useRoutes, RouteObject } from 'react-router-dom';
+import { BrowserRouter, NavLink, useRoutes, RouteObject } from 'react-router-dom';
 import {
   createBridgeComponent
 } from "@module-federation/bridge-react"

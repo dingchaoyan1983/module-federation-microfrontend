@@ -39,7 +39,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'subapp2',
       exposes: {
-        './App': './src/App', // 暴露整个应用
+        './App': './src/App.tsx', // 暴露整个应用
       },
       remotes: {
         subapp1: 'subapp1@http://localhost:3001/subapp1-manifest.json',
@@ -59,6 +59,10 @@ module.exports = {
           requiredVersion: '^18.2.0',
         }
       },
+      dts: {
+        generateTypes: true,
+        displayErrorInTerminal: true,
+      }
     }),
   ],
   devServer: {

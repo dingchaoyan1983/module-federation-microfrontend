@@ -21,9 +21,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "incremental": false,
+    "noCheck": true,
     "baseUrl": "./",
     "paths": {
+      "*": ["./@mf-types/*"],
       "react-router-dom": [
         "./node_modules/@module-federation/bridge-react/dist/router-v6.d.ts"
       ]
