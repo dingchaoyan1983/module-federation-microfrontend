@@ -12,15 +12,21 @@ export const fetchAppConfig = async (): Promise<AppConfig[]> => {
   return [
     {
       name: 'subapp1',
-      remoteUrl: 'http://localhost:3001/subapp1-manifest.json',
+      remoteUrl: 'http://localhost:3001',
       modulePath: 'App',
       routePrefix: '/subapp1',
     },
     {
       name: 'subapp2',
-      remoteUrl: 'http://localhost:3002/subapp2-manifest.json',
+      remoteUrl: 'http://localhost:3002',
       modulePath: 'App',
       routePrefix: '/subapp2',
+    },
+    {
+      name: 'vueapp',
+      remoteUrl: 'http://localhost:3003',
+      modulePath: 'App',
+      routePrefix: '/vueapp',
     },
   ];
 };

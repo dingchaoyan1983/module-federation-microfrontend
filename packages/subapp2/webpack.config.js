@@ -116,14 +116,15 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'subapp2',
+      library: {
+        type: "window",
+        name: "subapp2",
+      },
       exposes: {
         './App': './src/App.tsx', // 暴露整个应用
       },
       remotes: {
-        subapp1: 'subapp1@http://localhost:3001/subapp1-manifest.json',
-      },
-      manifest: {
-        fileName: 'subapp2-manifest.json',
+        subapp1: 'subapp1@http://localhost:3001/remoteEntry.js',
       },
       shareStrategy: "loaded-first",
       shared: {

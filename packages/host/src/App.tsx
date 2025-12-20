@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { fetchAppConfig } from '@/config/appConfig';
-import MicroApp from '@/components/MicroApp';
+// import MicroApp from '@/components/MicroApp';
 import { AppConfig } from '@/types';
 import { registerRemotes } from '@module-federation/enhanced/runtime';
 import "./app.less"
 import styles from "@/app.module.less"
 import "antd/dist/antd.less";
 import { Button } from 'antd';
+import microApp from '@micro-zoe/micro-app'
+
+microApp.start({
+  "disable-memory-router": true
+})
 
 const App: React.FC = () => {
   const [appList, setAppList] = useState<AppConfig[]>([]);
@@ -18,11 +23,11 @@ const App: React.FC = () => {
     const loadAppConfig = async () => {
       const config = await fetchAppConfig();
       setAppList(config);
-      registerRemotes(config.map((conf) => ({
-        name: conf.name,
-        alias: conf.name,
-        entry: conf.remoteUrl,
-      })));
+      // registerRemotes(config.map((conf) => ({
+      //   name: conf.name,
+      //   alias: conf.name,
+      //   entry: conf.remoteUrl,
+      // })));
       setLoading(false);
     };
 
@@ -60,7 +65,7 @@ const App: React.FC = () => {
               <Route
                 key={app.name}
                 path={`${app.routePrefix}/*`}
-                element={<MicroApp appConfig={app} />}
+                element={<><micro-app name={app.name} url={app.remoteUrl} baseroute={app.routePrefix} ></micro-app></>}
               />
             ))}
           </Routes>

@@ -116,12 +116,13 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'subapp1',
+      library: {
+        type: "window",
+        name: "subapp1",
+      },
       exposes: {
         './App': './src/App.tsx', // 暴露整个应用
         './Subapp1Component': './src/Subapp1Component.tsx', // 暴露组件
-      },
-      manifest: {
-        fileName: 'subapp1-manifest.json',
       },
       shareStrategy: "loaded-first",
       shared: {
@@ -137,7 +138,7 @@ module.exports = {
           singleton: true,
           requiredVersion: '^4.0.0',
         },
-         'antd/dist/antd.less': {
+        'antd/dist/antd.less': {
           singleton: true,
           eager: true,
         }
@@ -146,9 +147,6 @@ module.exports = {
         generateTypes: true,
         displayErrorInTerminal: true,
       },
-      bridge: {
-        enableBridgeRouter: true
-      }
     }),
   ],
   devServer: {

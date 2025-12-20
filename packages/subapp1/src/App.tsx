@@ -56,7 +56,7 @@ export const App: React.FC<AppProps> = (props = {}) => {
 
   // 独立运行，使用完整的 BrowserRouter
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
       <div className="subapp-standalone">
         <h1>子应用1（独立运行模式）</h1>
         <AppRoutes />
