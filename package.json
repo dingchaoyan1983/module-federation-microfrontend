@@ -8,10 +8,12 @@
     "start:host": "pnpm --filter @mf/host start",
     "start:subapp1": "pnpm --filter @mf/subapp1 start",
     "start:subapp2": "pnpm --filter @mf/subapp2 start",
+    "start:vueapp": "pnpm --filter @mf/vueapp start",
     "start:all": "concurrently \"pnpm start:host\" \"pnpm start:subapp1\" \"pnpm start:subapp2\"",
     "build:host": "pnpm --filter @mf/host build",
     "build:subapp1": "pnpm --filter @mf/subapp1 build",
     "build:subapp2": "pnpm --filter @mf/subapp2 build",
+    "build:vueapp": "pnpm --filter @mf/vueapp build",
     "build:all": "pnpm run build:host && pnpm run build:subapp1 && pnpm run build:subapp2"
   },
   "keywords": [
