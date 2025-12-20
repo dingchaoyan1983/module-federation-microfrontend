@@ -260,6 +260,9 @@ importers:
 
   packages/vue-ts-app:
     dependencies:
+      '@module-federation/bridge-vue3':
+        specifier: ^0.21.6
+        version: 0.21.6(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       '@types/vue':
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.9.3)
@@ -282,6 +285,9 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.22.0
         version: 7.28.5(@babel/core@7.28.5)
+      '@module-federation/enhanced':
+        specifier: ^0.21.6
+        version: 0.21.6(@rspack/core@1.6.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(webpack@5.104.1)
       '@types/node':
         specifier: ^20.4.0
         version: 20.19.27
@@ -956,6 +962,12 @@ packages:
 
   '@module-federation/bridge-shared@0.21.6':
     resolution: {integrity: sha512-ARe9IZeCBfQF4MJAbUp8/EucYkwQCsIQm1ti6XEbeDs+VaS9t6UtkcBnubrKCt/wc83+3czmcNZ0dxcpY57fHg==}
+
+  '@module-federation/bridge-vue3@0.21.6':
+    resolution: {integrity: sha512-iH/Fw+uefuJw0SwoKzIK6SQVb6Q5nj1Vjdq+A6J02zOmG73GodeddbUNDLr1S8RQDwLgaVLFr6984uTzE80t4w==}
+    peerDependencies:
+      vue: '=3'
+      vue-router: '=4'
 
   '@module-federation/cli@0.21.6':
     resolution: {integrity: sha512-qNojnlc8pTyKtK7ww3i/ujLrgWwgXqnD5DcDPsjADVIpu7STaoaVQ0G5GJ7WWS/ajXw6EyIAAGW/AMFh4XUxsQ==}
@@ -4420,6 +4432,14 @@ snapshots:
       react-router-dom: 6.22.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@module-federation/bridge-shared@0.21.6': {}
+
+  '@module-federation/bridge-vue3@0.21.6(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      '@module-federation/bridge-shared': 0.21.6
+      '@module-federation/runtime': 0.21.6
+      '@module-federation/sdk': 0.21.6
+      vue: 3.5.26(typescript@5.9.3)
+      vue-router: 4.6.4(vue@3.5.26(typescript@5.9.3))
 
   '@module-federation/cli@0.21.6(typescript@5.9.3)':
     dependencies:

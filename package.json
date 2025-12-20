@@ -13,6 +13,7 @@
     "build:host": "pnpm --filter @mf/host build",
     "build:subapp1": "pnpm --filter @mf/subapp1 build",
     "build:subapp2": "pnpm --filter @mf/subapp2 build",
+    "build:vue": "pnpm --filter vue-ts-app build",
     "build:all": "pnpm run build:host && pnpm run build:subapp1 && pnpm run build:subapp2"
   },
   "keywords": [
