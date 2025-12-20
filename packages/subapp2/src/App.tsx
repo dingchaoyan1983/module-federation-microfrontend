@@ -3,6 +3,9 @@ import { BrowserRouter, NavLink, useRoutes, RouteObject } from 'react-router-dom
 import {
   createBridgeComponent
 } from "@module-federation/bridge-react"
+import './index.less';
+import "antd/dist/antd.less";
+import { Button } from 'antd';
 
 const Subapp1Component = React.lazy(() => import('subapp1/Subapp1Component'));
 
@@ -36,6 +39,7 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
 
       {/* 子应用内容 */}
       <div className="subapp-content">
+        <Button type="primary">子应用2按钮</Button>
         {useRoutes(routes)}
       </div>
     </>

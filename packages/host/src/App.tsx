@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { fetchAppConfig } from './config/appConfig';
-import MicroApp from './components/MicroApp';
-import { AppConfig } from './types';
+import { fetchAppConfig } from '@/config/appConfig';
+import MicroApp from '@/components/MicroApp';
+import { AppConfig } from '@/types';
 import { registerRemotes } from '@module-federation/enhanced/runtime';
+import "./app.less"
+import styles from "@/app.module.less"
+import "antd/dist/antd.less";
+import { Button } from 'antd';
 
 const App: React.FC = () => {
   const [appList, setAppList] = useState<AppConfig[]>([]);
@@ -68,9 +72,10 @@ const App: React.FC = () => {
 
 // 宿主应用页面组件
 const HomePage: React.FC = () => <div>
-  <h1>欢迎来到宿主应用</h1>
-  <p>这是一个基于 Module Federation 的微前端宿主应用</p>
+  <h1 className="test">欢迎来到宿主应用</h1>
+  <p className={styles.container}>这是一个基于 Module Federation 的微前端宿主应用</p>
   <p>通过顶部导航可以访问各个子应用</p>
+  <Button type="primary">这是一个按钮</Button>
 </div>;
 
 const AboutPage: React.FC = () => <div>

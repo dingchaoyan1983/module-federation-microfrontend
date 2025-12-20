@@ -24,9 +24,8 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./@mf-types/*"],
-      "react-router-dom": [
-        "./node_modules/@module-federation/bridge-react/dist/router-v6.d.ts"
-      ]
+      "react-router-dom": ["./node_modules/@module-federation/bridge-react/dist/router-v6.d.ts"],
+      "@/*": ["src/*"]
     }
   },
   "include": [

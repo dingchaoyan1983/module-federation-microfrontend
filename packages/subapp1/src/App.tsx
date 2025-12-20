@@ -7,6 +7,8 @@ import {
   Routes, Route, NavLink, useRoutes, RouteObject
 } from 'react-router-dom';
 import Subapp1Component from './Subapp1Component';
+import "antd/dist/antd.less";
+import { Button } from 'antd';
 
 // 应用属性接口
 interface AppProps {
@@ -37,6 +39,7 @@ const AppRoutes: React.FC<AppProps> = () => {
 
       {/* 子应用内容 */}
       <div className="subapp-content">
+        <Button type="primary">子应用1按钮</Button>
         {useRoutes(routes)}
       </div>
     </>
