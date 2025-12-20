@@ -4,7 +4,8 @@ import {
 } from "@module-federation/bridge-react"
 import {
   BrowserRouter,
-  Routes, Route, NavLink, useRoutes, RouteObject
+  Routes, Route, NavLink, useRoutes, RouteObject,
+  useLocation
 } from 'react-router-dom';
 import Subapp1Component from './Subapp1Component';
 import "antd/dist/antd.less";
@@ -68,7 +69,7 @@ export const App: React.FC<AppProps> = (props = {}) => {
 const HomePage: React.FC = () => <div>
   <h2>子应用1首页</h2>
   <p>这是子应用1的首页内容</p>
-  <Subapp1Component />
+  <Subapp1Component useLocation={useLocation} />
 </div>;
 
 const Page1: React.FC = () => <div>

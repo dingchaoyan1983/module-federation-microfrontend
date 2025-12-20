@@ -12,12 +12,7 @@ interface AppProps {
  */
 export declare const App: React.FC<AppProps>;
 declare const _default: () => {
-    render(info: import("@module-federation/bridge-react").RenderFnParams & {
-        [key: string]: unknown;
-    }): Promise<void>;
-    destroy(info: {
-        moduleName: string;
-        dom: HTMLElement;
-    }): void;
+    render(info: import("@module-federation/bridge-react").RenderParams): Promise<void>;
+    destroy(info: import("@module-federation/bridge-react").DestroyParams): void;
 };
 export default _default;

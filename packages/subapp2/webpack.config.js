@@ -147,6 +147,9 @@ module.exports = {
       dts: {
         generateTypes: true,
         displayErrorInTerminal: true,
+      },
+      bridge: {
+        enableBridgeRouter: true
       }
     }),
   ],

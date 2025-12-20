@@ -137,6 +137,9 @@ module.exports = {
       },
       shareStrategy: "loaded-first",
       manifest: true,
+      bridge: {
+        enableBridgeRouter: true
+      }
     }),
   ],
   devServer: {

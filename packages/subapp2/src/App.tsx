@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, NavLink, useRoutes, RouteObject } from 'react-router-dom';
+import { BrowserRouter, NavLink, useRoutes, RouteObject, useLocation } from 'react-router-dom';
 import {
   createBridgeComponent
 } from "@module-federation/bridge-react"
@@ -54,7 +54,7 @@ export const App: React.FC<AppProps> = (props = {}) => {
 
   // 检查是否在宿主应用中运行
 
-
+  
   // 独立运行，使用完整的 BrowserRouter
   return (
     <BrowserRouter>
@@ -72,13 +72,16 @@ const HomePage: React.FC = () => <div>
   <p>这是子应用2的首页内容</p>
   <p>子应用2提供了仪表盘和设置功能</p>
   <React.Suspense>
-    <Subapp1Component />
+    <Subapp1Component name="子应用2" useLocation={useLocation} />
   </React.Suspense>
 </div>;
 
 const Dashboard: React.FC = () => <div>
   <h2>仪表盘</h2>
   <p>这里是子应用2的仪表盘页面</p>
+  <React.Suspense>
+    <Subapp1Component name="子应用2仪表盘" useLocation={useLocation} />
+  </React.Suspense>
   <div style={{ backgroundColor: '#e7f3ff', padding: '15px', borderRadius: '8px', marginTop: '10px' }}>
     <h3>关键指标</h3>
     <ul>

@@ -1,5 +1,5 @@
 
-import { createRemoteComponent } from "@module-federation/bridge-react"
+import { createRemoteAppComponent } from "@module-federation/bridge-react"
 import { loadRemote } from '@module-federation/enhanced/runtime';
 import { AppConfig } from '../types';
 
@@ -14,7 +14,7 @@ export const loadMicroApp = (appConfig: AppConfig) => {
     modulePath,
   } = appConfig;
 
-  const RemoteComponent = createRemoteComponent({
+  const RemoteComponent = createRemoteAppComponent({
     loader: () => loadRemote<any>(`${name}/${modulePath}`),
     loading: "loading",
     fallback: () => null,
