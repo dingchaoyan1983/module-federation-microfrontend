@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   createBridgeComponent
-} from "@module-federation/bridge-react"
+} from "@module-federation/bridge-react/v18"
 import {
   BrowserRouter,
   Routes, Route, NavLink, useRoutes, RouteObject,

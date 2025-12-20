@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, NavLink, useRoutes, RouteObject, useLocation } from 'react-router-dom';
 import {
   createBridgeComponent
-} from "@module-federation/bridge-react"
+} from "@module-federation/bridge-react/v18"
 import './index.less';
 import "antd/dist/antd.less";
 import { Button } from 'antd';
@@ -50,7 +50,7 @@ const AppRoutes: React.FC<AppProps> = ({ basename = '/' }) => {
  * 子应用2主组件
  * 支持独立运行和嵌入宿主两种模式
  */
-export const App: React.FC<AppProps> = (props = {}) => {
+const App: React.FC<AppProps> = (props = {}) => {
 
   // 检查是否在宿主应用中运行
 
