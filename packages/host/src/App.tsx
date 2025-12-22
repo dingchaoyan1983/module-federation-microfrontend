@@ -8,6 +8,7 @@ import "./app.less"
 import styles from "@/app.module.less"
 import "antd/dist/antd.less";
 import { Button } from 'antd';
+import { ShadowContainer } from '@/components/ShadowContainer';
 
 const App: React.FC = () => {
   const [appList, setAppList] = useState<AppConfig[]>([]);
@@ -76,6 +77,20 @@ const HomePage: React.FC = () => <div>
   <p className={styles.container}>这是一个基于 Module Federation 的微前端宿主应用</p>
   <p>通过顶部导航可以访问各个子应用</p>
   <Button type="primary">这是一个按钮</Button>
+  <ShadowContainer>
+    <style>
+      {
+        `
+        h1 {
+            color: red;
+        }
+        `
+      }
+    </style>
+    <h1>这是一个Shadow DOM容器</h1>
+    <iframe src="https://www.baidu.com/" title="百度" style={{ width: '100%', height: '400px' }}></iframe>
+  </ShadowContainer>
+  <h1>这是一个Shadow DOM容器</h1>
 </div>;
 
 const AboutPage: React.FC = () => <div>
